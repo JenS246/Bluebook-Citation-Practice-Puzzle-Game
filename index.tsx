@@ -28,6 +28,7 @@ type GameState = "MENU" | "LOADING" | "PLAYING" | "SUCCESS" | "FAILURE" | "GAMEO
 // --- Static Database ---
 
 const PUZZLE_DB: PuzzleData[] = [
+  // --- SUPREME COURT CASES ---
   {
     description: "Cite the 1966 Supreme Court case Miranda v. Arizona, found in volume 384 of the United States Reports at page 436.",
     correctSegments: [
@@ -116,6 +117,26 @@ const PUZZLE_DB: PuzzleData[] = [
     hint: "Check the spelling of Wainwright. Volume is 372."
   },
   {
+    description: "Cite the 1973 Supreme Court case Roe v. Wade, found in volume 410 of the United States Reports at page 113.",
+    correctSegments: [
+      { text: "Roe", isItalic: true },
+      { text: "v.", isItalic: true },
+      { text: "Wade", isItalic: true },
+      { text: "," },
+      { text: "410" },
+      { text: "U.S." },
+      { text: "113" },
+      { text: "(1973)" }
+    ],
+    distractors: [
+      { text: "411" },
+      { text: "US" },
+      { text: "Wade." },
+      { text: "Roe," }
+    ],
+    hint: "Standard Supreme Court citation. Italicize the parties."
+  },
+  {
     description: "Cite the 1945 Supreme Court case International Shoe Co. v. Washington, found in volume 326 of the United States Reports at page 310.",
     correctSegments: [
       { text: "Int'l", isItalic: true },
@@ -199,7 +220,7 @@ const PUZZLE_DB: PuzzleData[] = [
       { text: "(1974)" }
     ],
     distractors: [
-      { text: "U.S." }, // As party name, usually spelled out in main citation if opposed to private party, but for US v Nixon often kept full.
+      { text: "U.S." }, 
       { text: "US" },
       { text: "419" },
       { text: "President" }
@@ -370,6 +391,234 @@ const PUZZLE_DB: PuzzleData[] = [
     ],
     hint: "State names are spelled out."
   },
+
+  // --- STATUTES (U.S.C.) ---
+  {
+    description: "Cite the federal statute for Civil Action for Deprivation of Rights, found in Title 42 of the United States Code, Section 1983, published in the 2018 edition.",
+    correctSegments: [
+      { text: "42" },
+      { text: "U.S.C." },
+      { text: "§" },
+      { text: "1983" },
+      { text: "(2018)" }
+    ],
+    distractors: [
+      { text: "USC" },
+      { text: "Sec." },
+      { text: "s." },
+      { text: "1983." },
+      { text: "Code" },
+      { text: "§1983" }
+    ],
+    hint: "Title number first, then Code abbreviation, then section symbol. Space between section symbol and number."
+  },
+  {
+    description: "Cite the federal Diversity of Citizenship statute, found in Title 28 of the United States Code, Section 1332(a), published in the 2018 edition.",
+    correctSegments: [
+      { text: "28" },
+      { text: "U.S.C." },
+      { text: "§" },
+      { text: "1332(a)" },
+      { text: "(2018)" }
+    ],
+    distractors: [
+      { text: "28 U.S.C." },
+      { text: "Sec." },
+      { text: "1332" },
+      { text: "(a)" },
+      { text: "Section" }
+    ],
+    hint: "Keep the subsection '(a)' attached to the section number. Title 28."
+  },
+  {
+    description: "Cite the federal Racketeer Influenced and Corrupt Organizations (RICO) statute, found in Title 18 of the United States Code, Section 1961, published in 2018.",
+    correctSegments: [
+      { text: "18" },
+      { text: "U.S.C." },
+      { text: "§" },
+      { text: "1961" },
+      { text: "(2018)" }
+    ],
+    distractors: [
+      { text: "RICO" },
+      { text: "Act" },
+      { text: "US Code" },
+      { text: "Sec" }
+    ],
+    hint: "Standard U.S.C. citation format."
+  },
+
+  // --- CONSTITUTION ---
+  {
+    description: "Cite the Supremacy Clause, found in Article VI, Clause 2 of the United States Constitution.",
+    correctSegments: [
+      { text: "U.S." },
+      { text: "Const." },
+      { text: "art." },
+      { text: "VI" },
+      { text: "," },
+      { text: "cl." },
+      { text: "2" }
+    ],
+    distractors: [
+      { text: "Art." }, // Capitalized Art. is wrong in Bluebook for this
+      { text: "6" },
+      { text: "Sec." },
+      { text: "Clause" },
+      { text: "Constitution" }
+    ],
+    hint: "Use small caps abbreviation 'U.S. Const.'. 'art.' and 'cl.' are lowercase."
+  },
+  {
+    description: "Cite the First Amendment to the United States Constitution.",
+    correctSegments: [
+      { text: "U.S." },
+      { text: "Const." },
+      { text: "amend." },
+      { text: "I" }
+    ],
+    distractors: [
+      { text: "Constitution" },
+      { text: "Amendment" },
+      { text: "1" },
+      { text: "1st" },
+      { text: "Amend." } // Capitalized is wrong
+    ],
+    hint: "Abbreviate 'amend.' in lowercase. Use Roman numeral I."
+  },
+  {
+    description: "Cite the Commerce Clause, found in Article I, Section 8, Clause 3 of the United States Constitution.",
+    correctSegments: [
+      { text: "U.S." },
+      { text: "Const." },
+      { text: "art." },
+      { text: "I" },
+      { text: "," },
+      { text: "§" },
+      { text: "8" },
+      { text: "," },
+      { text: "cl." },
+      { text: "3" }
+    ],
+    distractors: [
+      { text: "Section" },
+      { text: "Sec." },
+      { text: "8," },
+      { text: "1" }
+    ],
+    hint: "Format: art. I, § 8, cl. 3."
+  },
+
+  // --- FEDERAL RULES ---
+  {
+    description: "Cite Rule 56 of the Federal Rules of Civil Procedure (Summary Judgment).",
+    correctSegments: [
+      { text: "Fed." },
+      { text: "R." },
+      { text: "Civ." },
+      { text: "P." },
+      { text: "56" }
+    ],
+    distractors: [
+      { text: "FRCP" },
+      { text: "Civ. Pro." },
+      { text: "Rule" },
+      { text: "56." },
+      { text: "Fed. R. Civ. P." } // Non-atomic distractor
+    ],
+    hint: "Space between each abbreviation: Fed. R. Civ. P."
+  },
+  {
+    description: "Cite Rule 12(b)(6) of the Federal Rules of Civil Procedure (Failure to State a Claim).",
+    correctSegments: [
+      { text: "Fed." },
+      { text: "R." },
+      { text: "Civ." },
+      { text: "P." },
+      { text: "12(b)(6)" }
+    ],
+    distractors: [
+      { text: "12" },
+      { text: "(b)" },
+      { text: "(6)" },
+      { text: "Rule" },
+      { text: "Civil" }
+    ],
+    hint: "The rule number and subsections stay together."
+  },
+  {
+    description: "Cite Rule 803 of the Federal Rules of Evidence (Hearsay Exceptions).",
+    correctSegments: [
+      { text: "Fed." },
+      { text: "R." },
+      { text: "Evid." },
+      { text: "803" }
+    ],
+    distractors: [
+      { text: "FRE" },
+      { text: "Evidence" },
+      { text: "Rule" },
+      { text: "803(1)" }
+    ],
+    hint: "Abbreviation is 'Evid.'."
+  },
+
+  // --- REGULATIONS (C.F.R.) ---
+  {
+    description: "Cite the FDA regulation on nutrition labeling found in Title 21 of the Code of Federal Regulations, Section 101.9, published in 2023.",
+    correctSegments: [
+      { text: "21" },
+      { text: "C.F.R." },
+      { text: "§" },
+      { text: "101.9" },
+      { text: "(2023)" }
+    ],
+    distractors: [
+      { text: "CFR" },
+      { text: "Reg." },
+      { text: "Sec." },
+      { text: "101.9." }
+    ],
+    hint: "Similar to U.S.C., but 'C.F.R.' is the reporter."
+  },
+  {
+    description: "Cite the EPA regulation on NEPA procedures found in Title 40 of the Code of Federal Regulations, Section 1500.1, published in 2022.",
+    correctSegments: [
+      { text: "40" },
+      { text: "C.F.R." },
+      { text: "§" },
+      { text: "1500.1" },
+      { text: "(2022)" }
+    ],
+    distractors: [
+      { text: "EPA" },
+      { text: "Code" },
+      { text: "Envtl." },
+      { text: "40 C.F.R." }
+    ],
+    hint: "Title 40. Section 1500.1."
+  },
+
+  // --- RESTATEMENTS ---
+  {
+    description: "Cite Section 402A of the Restatement (Second) of Torts, published in 1965.",
+    correctSegments: [
+      { text: "Restatement" },
+      { text: "(Second)" },
+      { text: "of" },
+      { text: "Torts" },
+      { text: "§" },
+      { text: "402A" },
+      { text: "(1965)" }
+    ],
+    distractors: [
+      { text: "2nd" },
+      { text: "Rest." },
+      { text: "Sec." },
+      { text: "Tort" }
+    ],
+    hint: "Spell out 'Restatement'. Use '(Second)'."
+  }
 ];
 
 // --- Components ---
@@ -480,11 +729,6 @@ function App() {
     if (!dragItemRef.current) return;
 
     // 1. Move the visual floating element directly (Perf optimization: no React render)
-    const currentLeft = parseFloat(dragItemRef.current.style.left || dragStartParams.left.toString());
-    const currentTop = parseFloat(dragItemRef.current.style.top || dragStartParams.top.toString());
-
-    // NOTE: This logic needs to be based on the initial render position + delta
-    // A simpler way for smooth drag is setting left/top directly to mouse - offset
     dragItemRef.current.style.left = `${e.clientX - dragOffset.x}px`;
     dragItemRef.current.style.top = `${e.clientY - dragOffset.y}px`;
     dragItemRef.current.style.transform = 'none'; // Reset any transforms if we are doing absolute positioning
@@ -557,24 +801,6 @@ function App() {
                      }
                      return prev;
                 });
-                
-                // Add to pool independently
-                // We need to find the segment object. Since we might have filtered it out above, 
-                // we should find it from the *current* state before filtering, or just use the draggedSegment state variable if it's reliable.
-                // However, handleGlobalPointerUp closes over the initial render scope unless we use a ref for state.
-                // Better approach: use the functional update of setDraftSegments to find it, 
-                // BUT we can't update setPool inside it.
-                // Solution: We have `draggedSegment` in component state!
-                // But `handleGlobalPointerUp` is defined in render, so it closes over the `draggedSegment` at the time of bind? 
-                // No, we add the listener in `handlePointerDown` which forms a closure. 
-                // If `draggedSegment` changes, the closure is stale.
-                // BUT `handlePointerDown` sets `draggedSegment` right before adding listeners. 
-                // The `draggedSegment` variable INSIDE `handlePointerDown` (passed as arg) is stable!
-                
-                // We don't have access to the segment arg here.
-                // We can trust `dragItemRef.current.dataset.id`.
-                // We need to find the segment data. We can find it in `draftSegments` state via functional update? No.
-                // Let's use a ref to store the currently dragged segment data to ensure availability in the callback.
             }
         }
     }
